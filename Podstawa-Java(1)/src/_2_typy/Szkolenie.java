@@ -41,5 +41,6 @@ public class Szkolenie {
         System.out.println("Nazwa grupy= " + this.nazwa);
         System.out.println("Cena= " + this.cena);
         System.out.println("Liczba uczestnikow= " + this.liczbaUczestnikow);
+
     }
 }
