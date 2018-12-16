@@ -26,7 +26,7 @@ public class AnalizaDat {
         }else if(wiek < 65){
             System.out.println("wiek produktywny");
         }else {
-            System.out.println("Wiek emerytalny");
+            System.out.println("Wiek emerytalny"); // Test
         }
     }
 }
