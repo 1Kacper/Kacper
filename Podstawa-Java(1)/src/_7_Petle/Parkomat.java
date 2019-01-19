@@ -23,6 +23,6 @@ public class Parkomat {
             }
 
         }
-        System.out.println("Milego pobytu");
+        System.out.println("Milego pobytu"); // lol
     }
 }
