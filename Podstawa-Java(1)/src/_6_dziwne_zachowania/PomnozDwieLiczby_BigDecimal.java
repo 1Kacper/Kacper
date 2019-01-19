@@ -1,5 +1,7 @@
 package _6_dziwne_zachowania;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -8,21 +10,15 @@ public class PomnozDwieLiczby_BigDecimal {
         Scanner wejscie = new Scanner(System.in);
         wejscie.useLocale(Locale.US);
         System.out.println("Podaj dwie liczby");
-        int arg1 = wejscie.nextInt();
-        int arg2 = wejscie.nextInt();
+        BigDecimal arg1 = wejscie.nextBigDecimal();
+        BigDecimal arg2 = wejscie.nextBigDecimal();
 
-        int wynik = arg1 * arg2;
+        BigDecimal wynik = arg1.multiply(arg2);
         System.out.println(wynik);
 
-        System.out.println(" Max int wynosi " + Integer.MAX_VALUE);
-        // jak obliczyc w sposob bezpieczny
+        wynik = wynik.setScale(2,RoundingMode.HALF_UP);
+        System.out.println(wynik);
 
-        try {
-            int wynik2 = Math.multiplyExact(arg1, arg2);
-            System.out.println("Wynik poprawny: " + wynik2);
-        } catch (ArithmeticException e) {
-            System.out.println("Wynik nie miesci sie w zakresie ");
-        }
     }
 }
 
