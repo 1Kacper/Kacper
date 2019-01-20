@@ -4,7 +4,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -94,6 +96,32 @@ public class Okno6 {
 
 
     private void przygotujZdarzenia() {
+
+        MojListener listener = new MojListener();
+        guzik.addActionListener(listener);
+
+        // klasa anonimowa
+
+        guzik.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String imie = pole.getText();
+                powitanie.setText("Witaj " + imie + " ! ");
+            }
+        });
+
+        // nowe skaldnia java 8
+
+        guzik2.addActionListener(ev ->{
+            int kolor = ThreadLocalRandom.current().nextInt(0x1000000);
+            guzik2.setForeground(new Color(kolor));
+
+            int dx = ThreadLocalRandom.current().nextInt(100);
+            int dy = ThreadLocalRandom.current().nextInt(100);
+
+            okno.setLocation(okno.getX() + dx,okno.getY() + dy);
+
+        });
 
     }
 }
