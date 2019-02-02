@@ -6,10 +6,12 @@ public class Menu {
     public void wyswietl() {
         Scanner wejscie = new Scanner(System.in);
 
-        System.out.println("1. Dodaj alkochol");
-        System.out.println("2. Usuń alkochol");
+        System.out.println("1. Dodaj alkohol");
+        System.out.println("2. Usuń alkohol");
         System.out.println("3. Wyświetl");
         System.out.println("q. Wyjście");
+        // TODO dodać nowe opcje
+
         String wybor;
 
         do {

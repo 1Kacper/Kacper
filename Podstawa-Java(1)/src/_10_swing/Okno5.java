@@ -19,7 +19,7 @@ public class Okno5 {
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setFont(new Font("Arial", Font.BOLD, 40));
         label.setForeground(Color.BLUE);
-        Color kolorTla = new Color(0xFFF70);
+        Color kolorTla = new Color(0x0BEBFF);
         label.setOpaque(true);
         label.setBackground(kolorTla);
         frame.add(label);
