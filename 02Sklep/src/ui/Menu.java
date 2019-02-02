@@ -11,10 +11,10 @@ import static javafx.scene.input.KeyCode.M;
 public class Menu {
     public void wyswietl() {
         Scanner wejscie = new Scanner(System.in);
-        Sklep sklep = new Sklep("Tajny sklep z Alkoholem w akademiku");
+        Sklep sklep = new Sklep("Tajny sklep z CZYMŚ w akademiku");
 
-        System.out.println("1. Dodaj alkohol");
-        System.out.println("2. Usuń alkohol");
+        System.out.println("1. Dodaj produkt");
+        System.out.println("2. Usuń produkt");
         System.out.println("3. Wyświetl");
         System.out.println("q. Wyjście");
         // TODO dodać nowe opcje
@@ -47,12 +47,14 @@ public class Menu {
                     sklep.dodajAlkohol(alkohol);
                     break;
                 case "2":
-                    System.out.println(" Usun ");
+                    System.out.println(" Podaj id do usuniecia ");
+                    int id = wejscie.nextInt();
+                     sklep.usun(id);
+                    System.out.println("Usun Produkt z id: " + id);
 
                     break;
                 case "3":
-                    sklep.wyświetl();
-                    break;
+                    System.out.println(sklep);
                 case "q":
                     System.out.println(" Wyjście");
                      break;
