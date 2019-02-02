@@ -22,4 +22,12 @@ public class Alkohol {
     public int getId(){
         return id;
     }
+
+    @Override
+    public String toString(){
+        return "nazwa: " + this.nazwa +  " Cena: " + this.cena;
+
+
+
+    }
 }

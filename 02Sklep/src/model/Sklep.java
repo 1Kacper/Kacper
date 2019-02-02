@@ -29,7 +29,9 @@ public class Sklep {
 
     }
     public void wyświetl(){
-        System.out.println(alkohole);
+        for(Alkohol alkohol : alkohole){
+            System.out.println(alkohol);
+        }
 
     }
 
