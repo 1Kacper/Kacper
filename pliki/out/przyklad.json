@@ -1,0 +1,12 @@
+{
+  "id" : " 73573743 - jk43 - pk",
+  "klient" : "Kacper Szweda",
+  "cena" : 197.23,
+  "produkt" : {
+    "id" : 1,
+    "cena" : 16
+  },
+  "rabat" : [
+    10, 20, 80
+  ]
+}
