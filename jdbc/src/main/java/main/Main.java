@@ -15,6 +15,7 @@ public class Main {
         User user = new User("Kacper", "Szweda", "Madison@email.com");
 
         userDao.save(user);
+        // userDao.delete(6);
     }
 }
 

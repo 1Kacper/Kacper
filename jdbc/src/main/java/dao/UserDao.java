@@ -7,7 +7,9 @@ import jdk.nashorn.internal.objects.annotations.Where;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDao {
@@ -33,7 +35,7 @@ public class UserDao {
         //Upadate
         public void upadete (User user) throws SQLException{
         Connection connection = db.getConnection();
-      String sql = "UPDATE user SET first_name=?,last_name=?,email=?" + "WHERE id = ?";
+      String sql = "UPDATE user SET first_name=?,last_name=?,email=?" + " WHERE id = ?";
 
       PreparedStatement ps = connection.prepareStatement(sql);
       ps.setString(1,user.getFirstName());
@@ -43,15 +45,51 @@ public class UserDao {
              ps.executeUpdate();
         }
         //delete
-        public void delete ( int id){
+        public void delete ( int id) throws SQLException{
+        Connection connection = db.getConnection();
+
+        String sql = "DELETE FROM user WHERE id = ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setInt(1,id);
+        ps.executeUpdate();
 
         }
         //findAll
-        public List<User> findAll () {
-            return null;
+        public List<User> findAll () throws SQLException {
+        Connection connection = db.getConnection();
+        String sql = "SELECT id, first_name, last_name, email FROM user";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ResultSet resultSet = ps.executeQuery();
+        List<User> users = new ArrayList<>();
+        while (resultSet.next()){
+            int id = resultSet.getInt("id");
+            String firstName = resultSet.getString("first_name");
+            String lastName = resultSet.getString("last_name");
+            String email = resultSet.getString("email");
+
+            User user = new User(id, firstName,lastName,email);
+            users.add(user);
+        }
+        return users;
         }
         //findById
-        public User findById ( int id){
+        public User findById ( int id) throws SQLException{
+            Connection connection = db.getConnection();
+            String sql = "SELECT id, first_name, last_name, email FROM user" + "WHERE id=?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1,id);
+            ResultSet resultSet = ps.executeQuery();
+
+           if (resultSet.next()){
+
+                String firstName = resultSet.getString("first_name");
+                String lastName = resultSet.getString("last_name");
+                String email = resultSet.getString("email");
+
+                User user = new User(id, firstName,lastName,email);
+                return new User(id,firstName,lastName,email);
+            }
+
             return null;
         }
     }
