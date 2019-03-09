@@ -1,0 +1,20 @@
+{
+  "nazwa" : "Tajny sklep z CZYMŚ w akademiku",
+  "produkty" : [ {
+    "type" : "alkohol",
+    "id" : 1,
+    "nazwa" : "lol",
+    "cena" : 2,
+    "litraz" : "3",
+    "procentAlkoholu" : "4",
+    "typ" : "alko"
+  }, {
+    "type" : "alkohol",
+    "id" : 2,
+    "nazwa" : "se",
+    "cena" : 2,
+    "litraz" : "3",
+    "procentAlkoholu" : "4",
+    "typ" : "alko"
+  } ]
+}
